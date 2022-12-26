@@ -1,3 +1,7 @@
+const container = document.querySelector(".container");
+const button = document.querySelector(".btn");
+const pTag = document.getElementsByTagName("p")[0];
+
 const gameChoices = ["rock", "paper", "scissors"];
 
 const getComputerChoice = () => {
@@ -16,20 +20,16 @@ const gamePlay = () => {
   let computerPick = getComputerChoice();
   let playerPick = getPlayerChoice();
   if (playerPick === computerPick) {
-    console.log("Tie");
+    pTag.textContent = "Tie";
   } else if (
     (computerPick == "rock" && playerPick == "scissors") ||
     (computerPick == "scissors" && playerPick == "paper") ||
     (computerPick == "paper" && playerPick == "rock")
   ) {
-    console.log(
-      `Computer wins! With its ${computerPick} against your ${playerPick}`
-    );
+    pTag.textContent = `Computer wins! With its ${computerPick} against your ${playerPick}`;
   } else if (
-    console.log(
-      `You win! With your ${playerPick} against the computer's ${computerPick}`
-    )
+    (pTag.textContent = `You win! With your ${playerPick} against the computer's ${computerPick}`)
   );
 };
 
-gamePlay();
+button.addEventListener("click", gamePlay);
